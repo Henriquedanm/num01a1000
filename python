@@ -1,0 +1,103 @@
+from random import randint
+from time import sleep
+nome = str(input('Olá Jogador ... Qual o seu Nome ? : ')).capitalize()
+numpc = randint(0,1000)
+acertou = False
+print('\033[1;35m-=' * 25)
+print('''O Computador Chutou um Numero entre 0 e 1000...
+TENTE ADVINHAR ELE :)''')
+print('-='* 25, '\033[m')
+print('')
+sleep(1)
+print('Se conseguir em menos de 5 vezes, terá uma mensagem especial !!!')
+print('')
+sleep(1)
+numjoga = int(input('CHUTE UM NUMERO DE 1 A 1000: '))
+cont = 1
+while not acertou:
+    # MAIOR QUE O NUMERO
+    if numjoga > numpc and numjoga >= numpc + 200:  # MAIOR QUE O NUMERO GERADO , MAIOR QUE O NUMERO + 200
+        print('SEU NUMERO É MUITO MAIOR QUE O NUMERO ESCOLHIDO... \033[1;34mMUITO FRIO\033[m ')
+        print('')
+        numjoga = int(input('TENTE NOVAMENTE : '))
+        cont = cont + 1
+
+    if numjoga > numpc and numjoga > numpc + 100 and numjoga < numpc + 200:  # MAIOR QUE O NUMERO GERADO , MAIOR QUE O NUMERO + 100 , MENOR QUE O NUMERO - 200
+        print('SEU NUMERO É MUITO MAIOR QUE O NUMERO ESCOLHIDO... \033[1;34mFRIO\033[m ')
+        print('')
+        numjoga = int(input('TENTE NOVAMENTE : '))
+        cont = cont + 1
+
+    if numjoga > numpc and numjoga <= numpc + 100 and numjoga > numpc + 50: # MAIOR QUE O NUMERO GERADO , MENOR QUE O NUMERO + 100
+        print('SEU NUMERO É MAIOR QUE O NUMERO ESCOLHIDO... \033[1;33mMORNO\033[m ')
+        print('')
+        numjoga = int(input('TENTE NOVAMENTE : '))
+        cont = cont + 1
+
+    if numjoga > numpc and numjoga <= numpc + 50 and numjoga > numpc + 20:  # MAIOR QUE O NUMERO GERADO , MENOR QUE O NUMERO + 50
+        print('SEU NUMERO É MAIOR QUE O NUMERO ESCOLHIDO... \033[1;31mQUENTE\033[m ')
+        print('')
+        numjoga = int(input('TENTE NOVAMENTE : '))
+        cont = cont + 1
+
+    if numjoga > numpc and numjoga <= numpc + 20 and numjoga > numpc + 10 :  # MAIOR QUE O NUMERO GERADO , MENOR QUE O NUMERO + 20
+        print('SEU NUMERO É MAIOR QUE O NUMERO ESCOLHIDO... \033[1;31mMUITO QUENTE\033[m ')
+        print('')
+        numjoga = int(input('TENTE NOVAMENTE : '))
+        cont = cont + 1
+
+    if numjoga > numpc and numjoga <= numpc + 10:  # MAIOR QUE O NUMERO GERADO , MENOR QUE O NUMERO + 10
+        print('SEU NUMERO É MAIOR QUE O NUMERO ESCOLHIDO... \033[1;31mFERVENDO\033[m ')
+        print('')
+        numjoga = int(input('TENTE NOVAMENTE : '))
+        cont = cont + 1
+
+    # MENOR QUE O NUMERO
+    if numjoga < numpc and numjoga <= numpc - 200:  # MENOR QUE O NUMERO GERADO , MENOR QUE O NUMERO - 200
+        print('SEU NUMERO É MUITO MENOR QUE O NUMERO ESCOLHIDO... \033[1;34mMUITO FRIO\033[m ')
+        print('')
+        numjoga = int(input('TENTE NOVAMENTE : '))
+        cont = cont + 1
+
+    if numjoga < numpc and numjoga < numpc - 100 and numjoga > numpc - 200: # MENOR QUE O NUMERO GERADO , MENOR QUE O NUMERO - 100
+        print('SEU NUMERO É MENOR QUE O NUMERO ESCOLHIDO... \033[1;34mFRIO\033[m ')
+        print('')
+        numjoga = int(input('TENTE NOVAMENTE : '))
+        cont = cont + 1
+
+    if numjoga < numpc and numjoga >= numpc - 100 and numjoga < numpc - 50: # MENOR QUE O NUMERO GERADO , MAIOR QUE O NUMERO - 100
+        print('SEU NUMERO É MENOR QUE O NUMERO ESCOLHIDO... \033[1;33mMORNO\033[m ')
+        print('')
+        numjoga = int(input('TENTE NOVAMENTE : '))
+        cont = cont + 1
+
+    if numjoga < numpc and numjoga >= numpc - 50 and numjoga < numpc -20:  # MENOR QUE O NUMERO GERADO , MAIOR QUE O NUMERO - 50
+        print('SEU NUMERO É MENOR QUE O NUMERO ESCOLHIDO... \033[1;31mQUENTE\033[m ')
+        print('')
+        numjoga = int(input('TENTE NOVAMENTE : '))
+        cont = cont + 1
+
+    if numjoga < numpc and numjoga >= numpc - 20 and numjoga < numpc - 10:  # MENOR QUE O NUMERO GERADO , MAIOR QUE O NUMERO - 50
+        print('SEU NUMERO É MENOR QUE O NUMERO ESCOLHIDO... \033[1;31mMUITO QUENTE\033[m ')
+        print('')
+        numjoga = int(input('TENTE NOVAMENTE : '))
+        cont = cont + 1
+
+    if numjoga < numpc and numjoga >= numpc - 10:  # MENOR QUE O NUMERO GERADO , MAIOR QUE O NUMERO - 50
+        print('SEU NUMERO É MENOR QUE O NUMERO ESCOLHIDO... \033[1;31mFERVENDO\033[m ')
+        print('')
+        numjoga = int(input('TENTE NOVAMENTE : '))
+        cont = cont + 1
+
+    if numjoga == numpc:
+        acertou = True
+print('')
+print('\033[1;32m-=' * 30)
+print('MEUS PARABENS {} ,Você acertou o numero {} em {} tentativas...'.format(nome, numpc, cont))
+print('-='* 30,'\033[m')
+
+if cont <= 5:
+    print('Você acertou o numero em 5 vezes ou menos...')
+    sleep(1)
+    print('RECEBA SEU PREMIO ')
+    print('MEUS PARABENS JOGADOR {}, VOCÊ ACABA DE GANHAR UMA BUNDA KKKKK <3'.format(nome))
